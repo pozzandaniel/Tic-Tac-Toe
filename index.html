@@ -9,6 +9,10 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
+    <button onclick="resetGame()" id="resetButton" class="reset-button d-none">Restart</button>
+    <div id="gameOver" class="game-over d-none">
+        <img src="./img/game-over.jpg" alt="">
+    </div>
     <div class="player-panel">
         <div id="player1" class="player">
             <img src="./img/cross.png" alt="">
@@ -19,6 +23,16 @@
             <p>Player 2</p>
         </div>
     </div>
+    <div id="line1" class="row-winner" style="top: 157px;"></div>
+    <div id="line2" class="row-winner" style="top: 285px;"></div>
+    <div id="line3" class="row-winner" style="top: 413px;"></div>
+    <div id="line4" class="row-winner rotate-90" style="top: 239px; right: 140px; "></div>
+    <div id="line5" class="row-winner rotate-90" style="top: 250px;"></div>
+    <div id="line6" class="row-winner rotate-90" style="top: 263px; left: 140px;"></div>
+    <div id="line7" class="row-winner" style="top: 224px; transform: rotate(45deg) ;"></div>
+    <div id="line8" class="row-winner" style="top: 212px; transform: rotate(-45deg);"></div>
+
+
     <table>
         <tr>
             <td onclick="fillGame(0)">
