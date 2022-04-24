@@ -18,11 +18,15 @@ function draw(id){
     for (let i = 0; i < game.length; i++) {
         if(currentShape == 'cross'){
             document.getElementById('cross-' + id).classList.remove('d-none');
+            document.getElementById('player1').classList.add('opacity');
+            document.getElementById('player2').classList.remove('opacity');
             
         } 
         
         if(currentShape == 'circle'){
             document.getElementById('circle-' + id).classList.remove('d-none');
+            document.getElementById('player2').classList.add('opacity');
+            document.getElementById('player1').classList.remove('opacity');
         }
     }
 }
