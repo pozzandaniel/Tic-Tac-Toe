@@ -1,15 +1,19 @@
 let game = [];
 let currentShape = 'cross';
 
+
+
 function fillGame(id) {
-    game[id] = currentShape;
-    console.log(game);
-    draw(id);
-    controllWinner();
-    if(currentShape == 'cross'){
-        currentShape = 'circle';
-    } else {
-        currentShape = 'cross';
+    if(!game[id]){
+        game[id] = currentShape;
+        console.log(game);
+        draw(id);
+        controllWinner();
+        if(currentShape == 'cross'){
+            currentShape = 'circle';
+        } else {
+            currentShape = 'cross';
+        }
     }
 }
 
@@ -18,17 +22,25 @@ function draw(id){
     for (let i = 0; i < game.length; i++) {
         if(currentShape == 'cross'){
             document.getElementById('cross-' + id).classList.remove('d-none');
-            document.getElementById('player1').classList.add('opacity');
-            document.getElementById('player2').classList.remove('opacity');
-            
+            changeToPlayer2();
         } 
         
         if(currentShape == 'circle'){
             document.getElementById('circle-' + id).classList.remove('d-none');
-            document.getElementById('player2').classList.add('opacity');
-            document.getElementById('player1').classList.remove('opacity');
+            changeToPlayer1();
+    
         }
     }
+}
+
+function changeToPlayer2() {
+    document.getElementById('player1').classList.add('opacity');
+    document.getElementById('player2').classList.remove('opacity');
+}
+
+function changeToPlayer1() {
+    document.getElementById('player2').classList.add('opacity');
+    document.getElementById('player1').classList.remove('opacity');
 }
 
 function controllWinner(){
