@@ -1,15 +1,14 @@
 let game = [];
 let currentShape = 'cross';
 let gameOver = false;
+let pencil = new Audio('./audio/pencil.mp3');
 
 
-
-function fillGame(id) {
-    if(!game[id] && !gameOver){
-        game[id] = currentShape;
-        console.log(game);
-        draw(id);
-        controllWinner();
+function fillGame(id) {             // the id represent the selected area and the established index of the array game = [];
+    if(!game[id] && !gameOver){    //If the array game in the selected area is empty and the condition gameOver is false, the function can start
+        game[id] = currentShape;    // the selected array position is filled with the value currentShape. At the beginning it is 'cross'. For exaple: game = [undefined, 'cross', undefined etc.] ► if the second area is selected;  game = ['cross', undefined, undefined, etc.] ► if the first area is selected
+        draw(id);                   //the function draw(position) is performed. The selected position is submitted
+        controllWinner();           //the function controllWinner is permormed.
         if(currentShape == 'cross'){
             currentShape = 'circle';
         } else {
@@ -20,13 +19,13 @@ function fillGame(id) {
 
 
 function draw(id){
-    for (let i = 0; i < game.length; i++) {
+    for (let i = 0; i < game.length; i++) {     // we go through the array game, like this:  game = [undefined, 'circle', 'cross', 'cross', undefinded etc.]
         if(currentShape == 'cross'){
-            document.getElementById('cross-' + id).classList.remove('d-none');
-            changeToPlayer2();
+            document.getElementById('cross-' + id).classList.remove('d-none'); // remove the class d-none with property display: none, and a cross in the position is shown
+            changeToPlayer2();      //the function changeToPlayer2 is called
         } 
         
-        if(currentShape == 'circle'){
+        if(currentShape == 'circle'){  //the same but a circle is shown instead.
             document.getElementById('circle-' + id).classList.remove('d-none');
             changeToPlayer1();
     
@@ -34,21 +33,21 @@ function draw(id){
     }
 }
 
-function changeToPlayer2() {
+function changeToPlayer2() { // the icon of the player 2 lose opacity and the icon of the player 1 gain it
     document.getElementById('player1').classList.add('opacity');
     document.getElementById('player2').classList.remove('opacity');
 }
 
-function changeToPlayer1() {
+function changeToPlayer1() { 
     document.getElementById('player2').classList.add('opacity');
     document.getElementById('player1').classList.remove('opacity');
 }
 
-function controllWinner(){
+function controllWinner(){ // the function check if the move has determined a winner in the game
     let winner;
-    if(game[0] == game[1] && game[1] == game[2] && game[0]){
+    if(game[0] == game[1] && game[1] == game[2] && game[0]){ // If the selected positions have the same value. For instance "cross", the player cross or player 1 win.
         winner = game[0];
-        document.getElementById('line1').style = 'top: 157px; transform: scale(1.0) !important;';
+        document.getElementById('line1').style = 'top: 157px; transform: scale(1.0) !important;'; // a line through the positions is drawn
     }
     if(game[3] == game[4] && game[4] == game[5] && game[3]){
         winner = game[3];
@@ -78,10 +77,10 @@ function controllWinner(){
         winner = game[2];
         document.getElementById('line8').style = 'top: 212px; transform: rotate(-45deg) scale(1.0) !important;';
     }
-    if(winner){
+    if(winner){ // if there is a winner and then the variable winner isn't empty, the condition is true;
         console.log(winner + ' hat gewonnen!');
-        gameOver = true;
-        setTimeout(function(){
+        gameOver = true; // the condition gameOver is changed in true.
+        setTimeout(function(){  // After 1 second (1000 milliseconds), the endscreen GameOver and the restart Button are shown
             document.getElementById('gameOver').classList.remove('d-none');
             document.getElementById('resetButton').classList.remove('d-none');
         }, 1000);
