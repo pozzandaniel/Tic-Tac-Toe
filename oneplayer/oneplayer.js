@@ -1,49 +1,24 @@
 let game = [];
 let currentShape = 'cross';
-let pcShape = 'circle';
 let gameOver = false;
-let pencil = new Audio('./audio/pencil.mp3');
-let success = new Audio('./audio/success.mp3');
-let drawSound = new Audio('./audio/draw.mp3');
+let pencil = new Audio('../audio/pencil.mp3');
+let success = new Audio('../audio/success.mp3');
+let drawSound = new Audio('../audio/draw.mp3');
+
 
 
 function fillGame(id) {             // the id represent the selected area and the established index of the array game = [];
     if(!game[id] && !gameOver){    //If the array game in the selected area is empty and the condition gameOver is false, the function can start
         game[id] = currentShape;    // the selected array position is filled with the value currentShape. At the beginning it is 'cross'. For exaple: game = [undefined, 'cross', undefined etc.] ► if the second area is selected;  game = ['cross', undefined, undefined, etc.] ► if the first area is selected
-        draw(id); 
-        console.log(winner);                  //the function draw(position) is performed. The selected position is submitted
-        condition();
-        controllWinner();
-        controllStateGame(); 
-        
-    }
-}
-
-function getLaunch() {
-    let launch = getRandomArbitrary(0, 8);
-     return formattedLaunch = launch.toFixed(0);   
-}
-
-function condition() {
-    console.log(getLaunch());
-    if(game[formattedLaunch]){
-        for (let i = 0; i < 100; i++){
-            console.log(getLaunch());
-            if(!game[formattedLaunch]) {
-                console.log('Platz frei!');
-                game[formattedLaunch] = pcShape;
-                drawComputer(formattedLaunch);
-                break;
-            } 
-            
+        draw(id);                   //the function draw(position) is performed. The selected position is submitted
+        controllWinner(); 
+        controllStateGame();
+        if(currentShape == 'cross'){ //the currentPlayer is changed.
+            currentShape = 'circle';
+        } else {
+            currentShape = 'cross';
         }
-    } else {
-        console.log('platz frei');
-        game[formattedLaunch] = pcShape;
-        drawComputer(formattedLaunch);
-
     }
-    
 }
 
 function controllStateGame() {
@@ -52,22 +27,6 @@ function controllStateGame() {
     }
 }
 
-
-
-
-
-/**
- * Returns a random number between min (inclusive) and max (exclusive)
- */
- function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
-function drawComputer(id) {
-    document.getElementById('circle-' + id).classList.remove('d-none');
-    pencil.play();
-    changeToPlayer1();
-}
 
 function draw(id){
     for (let i = 0; i < game.length; i++) {     // we go through the array game, like this:  game = [undefined, 'circle', 'cross', 'cross', undefinded etc.]
@@ -131,7 +90,7 @@ function controllWinner(){ // the function check if the move has determined a wi
         document.getElementById('line8').style = 'top: 212px; transform: rotate(-45deg) scale(1.0) !important;';
     }
     if(winner){ // if there is a winner and then the variable winner isn't empty, the condition is true;
-        endGame(success);
+       endGame(success);
     } 
     // If there isn't a winner the function fillGame(id) goes forward...
 }

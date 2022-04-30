@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <script src="oneplayer.js"></script>
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <div id="gameOver" class="game-over d-none">
+        <img src="../img/game-over.png" alt="">
+        <button onclick="resetGame()" id="resetButton" class="reset-button d-none">RESTART</button>
+    </div>
+   
+        <div id="player1" class="player player-1">
+            <img src="../img/xmark-solid.svg" alt="">
+            <p>Player 1</p>
+        </div>
+        <div id="player2" class="player player-2 opacity">
+            <img src="../img/circle-regular.svg" alt="">
+            <p>Player 2</p>
+        </div>
+   
+    <div id="line1" class="row-winner" style="top: 157px;"></div>
+    <div id="line2" class="row-winner" style="top: 285px;"></div>
+    <div id="line3" class="row-winner" style="top: 413px;"></div>
+    <div id="line4" class="row-winner rotate-90" style="top: 239px; right: 140px; "></div>
+    <div id="line5" class="row-winner rotate-90" style="top: 250px;"></div>
+    <div id="line6" class="row-winner rotate-90" style="top: 263px; left: 140px;"></div>
+    <div id="line7" class="row-winner" style="top: 224px; transform: rotate(45deg) ;"></div>
+    <div id="line8" class="row-winner" style="top: 212px; transform: rotate(-45deg);"></div>
+
+
+    <table>
+        <tr>
+            <td onclick="fillGame(0)">
+                <div  class="shape-container">
+                    <img id="cross-0" src="../img/xmark-solid.svg" class="shape d-none" alt="">
+                    <img id="circle-0" src="../img/circle-regular.svg" class="shape d-none" alt="">
+                </div>
+            </td>
+            <td onclick="fillGame(1)">
+                <div class="shape-container">
+                    <img id="cross-1" src="../img/xmark-solid.svg" class="shape d-none" alt="">
+                    <img id="circle-1" src="../img/circle-regular.svg" class="shape d-none" alt="">
+                </div>
+            </td>
+            <td onclick="fillGame(2)">
+                <div class="shape-container">
+                    <img id="cross-2" src="../img/xmark-solid.svg" class="shape d-none" alt="">
+                    <img id="circle-2" src="../img/circle-regular.svg" class="shape d-none" alt="">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td onclick="fillGame(3)">
+                <div class="shape-container">
+                    <img id="cross-3" src="../img/xmark-solid.svg" class="shape d-none" alt="">
+                    <img id="circle-3" src="../img/circle-regular.svg" class="shape d-none" alt="">
+                </div>
+            </td>
+            <td onclick="fillGame(4)">
+                <div class="shape-container">
+                    <img id="cross-4" src="../img/xmark-solid.svg" class="shape d-none" alt="">
+                    <img id="circle-4" src="../img/circle-regular.svg" class="shape d-none" alt="">
+                </div>
+            </td>
+            <td onclick="fillGame(5)">
+                <div class="shape-container">
+                    <img id="cross-5" src="../img/xmark-solid.svg" class="shape d-none" alt="">
+                    <img id="circle-5" src="../img/circle-regular.svg" class="shape d-none" alt="">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td onclick="fillGame(6)">
+                <div class="shape-container">
+                    <img id="cross-6" src="../img/xmark-solid.svg" class="shape d-none" alt="">
+                    <img id="circle-6" src="../img/circle-regular.svg" class="shape d-none" alt="">
+                </div>
+            </td>
+            <td onclick="fillGame(7)">
+                <div class="shape-container">
+                    <img id="cross-7" src="../img/xmark-solid.svg" class="shape d-none" alt="">
+                    <img id="circle-7" src="../img/circle-regular.svg" class="shape d-none" alt="">
+                </div>
+            </td>
+            <td onclick="fillGame(8)">
+                <div class="shape-container">
+                    <img id="cross-8" src="../img/xmark-solid.svg" class="shape d-none" alt="">
+                    <img id="circle-8" src="../img/circle-regular.svg" class="shape d-none" alt="">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="footer">
+        <div>Impressum: Icons are provided by <a style="text-decoration: none; color: black;" href="https://fontawesome.com/">Font Awesome</a></div>
+    </div>s
+    
+</body>
+</html>
