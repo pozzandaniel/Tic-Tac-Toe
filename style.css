@@ -182,5 +182,32 @@ table {
         height: 110px;
         width: 110px;
     }
+    #line2 {
+        top: 252px !important;
+    }
+    #line3 {
+        top: 357px !important;
+    }
+    #line4 {
+        top: 230px !important;
+        right: 115px !important;
+    }
+    #line5 {
+        top: 215px !important;
+    }
+    #line6 {
+        top: 205px !important;
+        left: 117px !important;
+    }
+    #line7 {
+        top: 192px !important;
+    }
+    #line8 {
+        top: 180px !important;
+    }
+    .reset-button {
+        bottom: 120px;
+        width: 40%;
+    }
     
 }
