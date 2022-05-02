@@ -6,6 +6,13 @@ body {
     height: 100vh;
 }
 
+.home-icon img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 30px;
+    cursor: pointer;
+}
 
 tr {
     width: 399px;
@@ -152,3 +159,28 @@ table {
  
 }
 
+@media (max-width:900px){
+    #line1 {
+        top: 145px !important;
+    }
+    #line2 {
+        top: 275px !important;
+    }
+    #line3 {
+        top: 403px !important;
+    }
+}
+
+@media (max-width: 450px){
+    .player {
+        flex-direction: column;
+    }
+    #player1, #player2 {
+        top: 10vh;
+    }
+    td {
+        height: 110px;
+        width: 110px;
+    }
+    
+}
